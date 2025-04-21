@@ -1,0 +1,19 @@
+CREATE TABLE Servicios ( 
+id_servicio INT AUTO_INCREMENT PRIMARY KEY, 
+id_vehiculo INT NOT NULL, id_cliente INT NOT NULL, 
+descripcion TEXT NOT NULL, fecha DATE NOT NULL, 
+costo DECIMAL(10, 2) NOT NULL, 
+FOREIGN KEY (id_vehiculo) REFERENCES Vehiculo(Id_vehiculo), 
+FOREIGN KEY (id_cliente) REFERENCES Clientes(id_cliente) 
+);
+
+CREATE TABLE Citas ( 
+id_cita INT AUTO_INCREMENT PRIMARY KEY,
+id_cliente INT NOT NULL, 
+id_vehiculo INT NOT NULL, 
+fecha DATE NOT NULL, 
+hora TIME NOT NULL, 
+descripcion TEXT, 
+FOREIGN KEY (id_cliente) REFERENCES Clientes(id_cliente), 
+FOREIGN KEY (id_vehiculo) REFERENCES Vehiculo(Id_vehiculo) 
+);
